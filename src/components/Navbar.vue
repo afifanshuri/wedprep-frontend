@@ -9,8 +9,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link" href="/caterings">All Catering List</a>
-                        <a class="nav-link" href="/add">Add a catering</a>
+                        <router-link :to="{name : 'viewAllCaterings'}" class="nav-link">All Catering List</router-link>
+                        <router-link :to="{name : 'addCatering'}" class="nav-link">Add a catering</router-link>
                     </div>
                 </div>
             </div>

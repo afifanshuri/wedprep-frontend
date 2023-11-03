@@ -8,13 +8,13 @@
                     <h1 class="text-center">View Caterings</h1>
                     <a href="/add" class="btn btn-primary">Add</a>
                     <table class="table table-striped">
-                        <thread>
+                        <thead>
                             <tr>
                                 <th scope="col">Id</th>
                                 <th scope="col">Catering Name</th>
                                 <th scope="col">Version</th>
                             </tr>
-                        </thread>
+                        </thead>
                         <tbody>
                             <tr v-for="catering in caterings" :key="catering.id">
                                 <th scope="row">{{catering.id}}</th>
@@ -54,7 +54,7 @@ export default {
             fetch(`http://localhost:8080/catering/caterings`)
                 .then(res => res.json())
                 .then(data => {
-                    this.caterings = data;
+                    this.caterings = data
                     console.log(data)
                 })
         },
@@ -69,6 +69,10 @@ export default {
                     this.getCateringList()
                 })
         }
+    },
+
+    beforeMount(){
+        this.getCateringList()
     }
 
 }
