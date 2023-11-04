@@ -1,25 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import ViewCatering from '../views/catering/ViewCatering.vue'
+import home from '../views/common/Home.vue'
+import cateringrouter from './routes/catering.js'
+
+const routes = [
+  {
+    path: '/home',
+    name:'home',
+    component: home
+  },
+  ...cateringrouter
+]
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/home',
-      name: 'home',
-      component: () => import('../views/common/Home.vue')
-    },
-    {
-      path:'/addCatering',
-      name:'addCatering',
-      component: () => import('../views/catering/AddCatering.vue')
-    },
-    {
-      path:'/viewAll',
-      name:'viewAllCaterings',
-      component: ViewCatering
-    }
-  ]
+  routes: routes
 })
 
 export default router
