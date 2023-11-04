@@ -44,7 +44,7 @@ export default {
     },
     methods: {
         addCatering() {
-            fetch(`http://localhost:8080/catering/add`,{
+            fetch(`http://localhost:8080/wedprep/api/catering/add`,{
                 method: 'POST',
                 headers:{
                     'Content-Type':'application/json'
@@ -53,7 +53,7 @@ export default {
             })
                 .then(data => {
                     console.log(data)
-                    this.$router.push("/catering")
+                    this.$router.push("home")
                 })
         }
     }

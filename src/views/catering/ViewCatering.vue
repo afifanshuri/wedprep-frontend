@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="text-center">View Caterings</h1>
-                    <a href="/add" class="btn btn-primary">Add</a>
+                    <router-link to="addCatering">Add</router-link>
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -36,7 +36,8 @@
 
 
 <script>
-import Navbar from '../components/Navbar.vue';
+import Navbar from '../../components/Navbar.vue';
+
 
 export default {
     name: 'viewCatering',
@@ -51,7 +52,7 @@ export default {
 
     methods: {
         getCateringList() {
-            fetch(`http://localhost:8080/catering/caterings`)
+            fetch(`http://localhost:8080/wedprep/api/catering/view`)
                 .then(res => res.json())
                 .then(data => {
                     this.caterings = data
@@ -60,7 +61,7 @@ export default {
         },
 
         deleteCatering(id) {
-            fetch(`http://localhost:8080/catering/delete/${id}`,
+            fetch(`http://localhost:8080/wedprep/api/catering/delete/${id}`,
                 {
                     method: 'DELETE'
                 })

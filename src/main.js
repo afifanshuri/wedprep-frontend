@@ -13,7 +13,7 @@ const app = createApp(App)
 router.beforeEach((to,from,next) => {
     if (to.path === '/') {
         // Redirect to /catering if the route is the root URL
-        next('/catering');
+        next('/home');
       } else {
         // Proceed to the requested route 
         next();
