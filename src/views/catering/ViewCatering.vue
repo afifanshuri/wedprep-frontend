@@ -10,20 +10,23 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">Id</th>
                                 <th scope="col">Catering Name</th>
-                                <th scope="col">Version</th>
+                                <th scope="col">Menu</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="catering in caterings" :key="catering.id">
-                                <th scope="row">{{catering.id}}</th>
                                 <td>{{ catering.cateringName }}</td>
-                                <td>{{ catering.version }}</td>
+                                <td>{{ catering.menu }}</td>
                                 <td>
                                     <button class="btn btn-danger mx-2" 
                                     @click="$event => deleteCatering(catering.id)">Delete</button>
                                     
+                                </td>
+
+                                <td>
+                                    <button class="btn btn-primary mx-2" 
+                                    @click="$event => clickCateringDetails(catering.id,catering.cateringName)">Details</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -69,6 +72,10 @@ export default {
                     console.log(data)
                     this.getCateringList()
                 })
+        },
+
+        clickCateringDetails(id,name){
+            this.$router.push({ name: 'cateringDetailsPage', params: {cateringId: id,cateringName: name} });
         }
     },
 

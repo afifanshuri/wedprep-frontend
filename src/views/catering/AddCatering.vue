@@ -8,16 +8,10 @@
                 placeholder="Enter Catering Name" v-model="catering.cateringName">
             </div>
             <div class="mb-3">
-                <label for="cateringID" class="form-label">ID</label>
-                <textarea class="form-control" id="cateringID" rows="3"
-                v-model="catering.id"></textarea>
+                <label for="menu" class="form-label">Menu</label>
+                <textarea class="form-control" id="menu" rows="3"
+                v-model="catering.menu"></textarea>
             </div>
-            <div class="mb-3">
-                <label for="cateringVersion" class="form-label">Version</label>
-                <textarea class="form-control" id="cateringVersion" rows="3"
-                v-model="catering.version"></textarea>
-            </div>
-
             <input type="submit" class="btn btn-primary w-100" value="Submit">
         </form>
         
@@ -36,8 +30,7 @@ export default {
         return {
             catering: {
                 cateringName: '',
-                id: '',
-                version: ''
+                menu: '',
             }
         }
 
