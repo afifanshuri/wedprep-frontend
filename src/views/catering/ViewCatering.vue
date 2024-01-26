@@ -1,17 +1,13 @@
 <template>
     <main>
-        <Navbar/>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="text-center">View Caterings</h1>
-                    <router-link to="addCatering">Add</router-link>
-                    <table class="table table-striped">
+                <div>
+                    <h3>Caterings Listing</h3>
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">Catering Name</th>
                                 <th scope="col">Menu</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -21,32 +17,24 @@
                                 <td>
                                     <button class="btn btn-danger mx-2" 
                                     @click="$event => deleteCatering(catering.id)">Delete</button>
-                                    
-                                </td>
-
-                                <td>
                                     <button class="btn btn-primary mx-2" 
                                     @click="$event => clickCateringDetails(catering.id,catering.cateringName)">Details</button>
+                                    
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </div>
     </main>
 </template>
 
 
 <script>
-import Navbar from '../../components/Navbar.vue';
+import { MAIN_API,API_DIRECTORY,API_METHOD} from '../../constants/RouteConstant';
 
 
 export default {
     name: 'viewCatering',
-    components: {
-        Navbar
-    },
     data() {
         return {
             caterings: []
@@ -55,7 +43,7 @@ export default {
 
     methods: {
         getCateringList() {
-            fetch(`http://localhost:8080/wedprep/api/catering/view`)
+            fetch(MAIN_API + "/" + API_DIRECTORY.get("CATERING")+ "/" + API_METHOD.get("VIEW"))
                 .then(res => res.json())
                 .then(data => {
                     this.caterings = data
@@ -64,7 +52,7 @@ export default {
         },
 
         deleteCatering(id) {
-            fetch(`http://localhost:8080/wedprep/api/catering/delete/${id}`,
+            fetch(MAIN_API + "/" + API_DIRECTORY.get("CATERING")+ "/" +API_METHOD.get("DELETE")+"/"+`${id}`,
                 {
                     method: 'DELETE'
                 })

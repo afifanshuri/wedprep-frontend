@@ -21,7 +21,7 @@ const cateringrouter =  [
           component: viewCatering
         },
         {
-          path: '/viewSpecificCatering/:cateringName',
+          path: '/viewSpecificCatering/:cateringId/:cateringName',
           name: 'cateringDetailsPage', // Enclose name in quotes as a string
           component: cateringDetails
         },
